@@ -1,31 +1,106 @@
-/* Base styles (for mobile) */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base styles */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f5f5f5;
+  background-color: #f5f5f5; /* Light background by default */
   color: #333;
+  scroll-behavior: smooth;
 }
 
+/* Header */
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
   background: #333;
-  color: #fff;
+  color: white;
+  position: relative;
+}
+
+/* Center Header Text */
+header h1 {
   text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  flex-grow: 1; /* Make sure the header text takes up the remaining space */
+}
+
+header h1 span {
+  color: purple; /* Web Developer in purple */
+}
+
+/* Theme Toggle Button (Night Logo) - Left */
+#theme-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  left: 1rem; /* Positioned left */
+}
+
+/* Hamburger Menu Button - Right */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem; /* Larger icon */
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem; /* Positioned right */
+}
+
+/* Navigation Menu */
+nav {
+  display: none; /* Hidden by default */
+  background: #333;
+}
+
+nav.show {
+  display: block; /* Show the menu when toggled */
+}
+
+nav ul {
+  list-style: none;
   padding: 1rem 0;
+  text-align: center;
 }
 
-main {
+nav ul li {
+  margin-bottom: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #f39c12; /* Highlight color on hover */
+}
+
+/* Sections */
+section {
   padding: 2rem;
+  margin: 1rem 0;
 }
 
-h1,
 h2 {
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 /* Footer */
@@ -36,44 +111,90 @@ footer {
   color: #fff;
 }
 
-/* For tablets (screen width 600px - 1024px) */
-@media (min-width: 600px) {
+/* Media Queries */
+
+/* Mobile and Tablet (up to 1024px) */
+@media (max-width: 1024px) {
+  /* Adjust header layout for mobile */
   header {
-    padding: 1.5rem 0;
-    font-size: 1.5rem;
+    flex-direction: column; /* Stack header elements vertically */
+    align-items: center; /* Center align all header elements */
   }
 
-  main {
-    padding: 3rem;
+  nav {
+    width: 100%;
   }
 
-  h1,
-  h2 {
+  header h1 {
     font-size: 1.8rem;
+    text-align: center;
   }
 
-  footer {
-    padding: 1.5rem 0;
+  nav ul {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Show the menu only when toggled */
+  .menu-toggle {
+    display: block; /* Keep burger icon visible */
+  }
+
+  nav.show {
+    display: block; /* Show menu when toggle is clicked */
   }
 }
 
-/* For desktops (screen width 1024px and up) */
+/* Tablet (600px and up) */
+@media (min-width: 600px) and (max-width: 1024px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Desktop (1024px and up) */
 @media (min-width: 1024px) {
-  header {
-    padding: 2rem 0;
+  nav {
+    display: flex; /* Always show menu horizontally on desktop */
+    background: none; /* No background color */
+  }
+
+  header h1 {
     font-size: 2rem;
   }
 
-  main {
-    padding: 4rem;
+  nav ul {
+    justify-content: flex-start; /* Left-align the menu */
   }
 
-  h1,
-  h2 {
-    font-size: 2rem;
+  .menu-toggle {
+    display: none; /* Hide the hamburger menu on desktop */
   }
+}
 
-  footer {
-    padding: 2rem 0;
-  }
+/* Dark Theme */
+body.dark-theme {
+  background-color: #121212; /* Dark background */
+  color: white;
+}
+
+body.dark-theme header {
+  background: #222;
+}
+
+body.dark-theme nav {
+  background: #333;
+}
+
+body.dark-theme nav ul li a {
+  color: white;
+}
+
+body.dark-theme nav ul li a:hover {
+  color: #f39c12;
 }

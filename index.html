@@ -4,29 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
-    <!-- Link to CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Header with Navigation -->
     <header>
-      <h1>Welcome to My Portfolio</h1>
-      <p>Sarbjot S. Marwaha | Web Developer</p>
+      <button id="theme-toggle">🌙</button>
+      <!-- Theme Toggle Button (Night logo) -->
+      <h1><span>SM7</span> | Web Developer</h1>
+      <!-- SM7 before Web Developer -->
+      <!-- Hamburger Menu -->
+      <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+
+      <!-- Navigation Menu -->
+      <nav id="nav-menu" class="hidden">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </header>
+    <!-- Page Sections -->
     <main>
+      <section id="home">
+        <h2>Home</h2>
+        <p>Welcome to my personal portfolio website.</p>
+      </section>
+
       <section id="about">
         <h2>About Me</h2>
         <p>This is a brief introduction about me.</p>
       </section>
+
+      <section id="resume">
+        <h2>Resume</h2>
+        <p>View or download my resume here.</p>
+      </section>
+
       <section id="projects">
         <h2>My Projects</h2>
-        <p>Project 1, Project 2, and more coming soon...</p>
+        <p>Here are some of my recent projects...</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: sarbjoto1@outlook.com</p>
       </section>
     </main>
+
+    <!-- Footer -->
     <footer>
-      <p>Contact: sarbjoto1@outlook.com</p>
+      <p>&copy; 2024 Sarbjot S. Marwaha</p>
     </footer>
 
-    <!-- Link to JavaScript -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>
